@@ -1,0 +1,9 @@
+stranka na socky
+
+1. models: téma{nazov-povinny, popis-povinny, konzultant-povinny,student, odbor-povinny, dostupnost(volne, cakajuce na schválenie, obsadene), 
+pocet konzultacii(1,2,3)}, ucitel{meno, priezvisko, email, heslo}, student{meno, priezvisko, email, heslo},
+
+2. endpointy: vypise vsetky temy so vsetkymi informaciami(najprv budu ukazane volne), ucitel(podla id vyúpise jeho temy), student(podla id, jeho praca), 
+tema(podla id, vypise detail temy), statistic(pocet tem, schvalene temy, cakajuce, neobsadene a celkovy pocet tem), tema/create(vytvorit temu)
+
+Novy django projekt - moje priezvisko

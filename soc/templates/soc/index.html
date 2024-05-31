@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOČ-ky</title>
+</head>
+<body>
+    {% if temy %}
+    <div class="container pt-3">
+        <h2>{{tema.nazov}}</h2>
+        <p>{{tema.popis}}</p>
+        <p>{{tema.konzultant}}</p>
+        <p>{{tema.student}}</p>
+        <p>{{tema.odbor}}</p>
+        <p>{{tema.dostupnost}}</p>
+        <p>{{tema.pocet_konzultacii}}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
