@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOČ-ky</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>Témy</h1>
     {% if temy %}
+    {% for tema in temy %}
     <div class="container pt-3">
-        <h2>{{tema.nazov}}</h2>
-        <p>{{tema.popis}}</p>
-        <p>{{tema.konzultant}}</p>
-        <p>{{tema.student}}</p>
-        <p>{{tema.odbor}}</p>
-        <p>{{tema.dostupnost}}</p>
-        <p>{{tema.pocet_konzultacii}}</p>
+        <h2><a href="{% url 'tema' tema=tema.id %}">{{tema.nazov}}</a></h2>
+        <p>Dostupnosť: {{tema.dostupnost}}</p>
     </div>
+    {% endfor %}
     {% endif %}
-</body>
-</html>
+
+{% endblock  %}

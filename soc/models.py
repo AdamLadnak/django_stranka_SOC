@@ -46,3 +46,8 @@ class Tema(models.Model):
 
     def __str__(self):
         return f"{self.nazov} {self.popis} {self.konzultant} {self.student} {self.odbor} {self.dostupnost} {self.pocet_konzultacii}"
+    
+    class Meta:
+        verbose_name = "Téma"
+        verbose_name_plural = "Témy"
+        ordering = ["dostupnost"]

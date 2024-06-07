@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if student %}
+    <div class="container pt-3">
+        <h1>{{student.meno}} {{student.priezvisko}}</h1>
+
+        <h3>Práce:</h3>
+        <ul>
+        {% for tema in temy %}    
+            <li>{{tema.nazov}}</li>
+        {% endfor %}    
+        </ul>
+    </div>
+    {% endif %}
+    
+{% endblock  %}

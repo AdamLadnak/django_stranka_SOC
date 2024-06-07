@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Štatistiky</h1>
+    <div class="container pt-3">
+        <p>Počet čakajúcich: {{cakajuce}}</p>
+        <p>Počet voľných: {{volne}}</p>
+        <p>Počet schválených: {{schvalene}}</p>
+        <p>Počet tém: {{pocet_tem}}</p>
+        <p>Počet učiteľov: {{pocet_ucitelov}}</p>
+        <p>Počet študentov: {{pocet_studentov}}</p>
+    </div>
+    
+{% endblock  %}
