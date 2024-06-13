@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if tema %}
+    <div class="content-container">
+        <h1>{{ tema.nazov }}</h1>
+        <div class="topic-details">
+            <b>Popis: </b>
+            <p>{{ tema.popis }}</p>
+            <p><b>Konzultant:</b> <a href="{% url 'ucitel' ucitel=tema.konzultant.id %}">{{ tema.konzultant }}</a></p>
+            <p><b>Študent:</b> {% if tema.student %} <a href="{% url 'student' student=tema.student.id %}">{{ tema.student }}</a> {% endif %} </p>
+            <p>{{ tema.odbor }}</p>
+            <p><b>Dostupnosť:</b> {{ tema.dostupnost }}</p>
+            <p><b>Konzultácie:</b> {{ tema.pocet_konzultacii }}</p>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if student %}
+    <div class="content-container">
+        <h1>{{ student.meno }} {{ student.priezvisko }}</h1>
+        <div class="works">
+            <h3>Práce:</h3>
+            <div class="theme">
+            {% for tema in temy %}
+                <div class="content">
+                    <h2><a href="{% url 'tema' tema=tema.id %}">{{tema.nazov}}</a></h2>
+                </div>    
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if ucitel %}
+    <div class="content-container">
+        <h1>{{ ucitel.meno }} {{ ucitel.priezvisko }}</h1>
+        <div class="themes-list">
+            <h3>Témy:</h3>
+            {% for tema in temy %}
+            <div class="theme">
+                <div class="content">
+                    <h2><a href="{% url 'tema' tema=tema.id %}">{{tema.nazov}}</a></h2>
+                    {% if tema.dostupnost.id == 1 %}
+                    <p class="availability" style="background-color: green;">{{tema.dostupnost}}</p>
+                    {% endif %}
+                    {% if tema.dostupnost.id == 2 %}
+                    <p class="availability" style="background-color: orange;">{{tema.dostupnost}}</p>
+                    {% endif %}
+                    {% if tema.dostupnost.id == 3 %}
+                    <p class="availability" style="background-color: red;">{{tema.dostupnost}}</p>
+                    {% endif %}
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+

@@ -1,14 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <h1>Témy</h1>
     {% if temy %}
-    {% for tema in temy %}
-    <div class="container pt-3">
-        <h2><a href="{% url 'tema' tema=tema.id %}">{{tema.nazov}}</a></h2>
-        <p>Dostupnosť: {{tema.dostupnost}}</p>
-    </div>
-    {% endfor %}
-    {% endif %}
+    <div class="container">
+        <h1>Témy</h1>
 
-{% endblock  %}
+        <div class="themes-list">
+            {% for tema in temy %}
+            <div class="theme">
+                <div class="content">
+                    <h2><a href="{% url 'tema' tema=tema.id %}">{{tema.nazov}}</a></h2>
+                    {% if tema.dostupnost.id == 1 %}
+                    <p class="availability" style="background-color: green;">{{tema.dostupnost}}</p>
+                    {% endif %}
+                    {% if tema.dostupnost.id == 2 %}
+                    <p class="availability" style="background-color: orange;">{{tema.dostupnost}}</p>
+                    {% endif %}
+                    {% if tema.dostupnost.id == 3 %}
+                    <p class="availability" style="background-color: red;">{{tema.dostupnost}}</p>
+                    {% endif %}
+                    
+                </div>
+                <div class="topic-details">
+                    <b>Popis: </b>
+                    <p>{{ tema.popis }}</p>
+                    <p><b>Konzultant:</b> <a href="{% url 'ucitel' ucitel=tema.konzultant.id %}">{{ tema.konzultant }}</a></p>
+                    <p><b>Študent:</b> {% if tema.student %} <a href="{% url 'student' student=tema.student.id %}">{{ tema.student }}</a> {% endif %} </p>
+                    <p>{{ tema.odbor }}</p>
+                    <p><b>Konzultácie:</b> {{ tema.pocet_konzultacii }}</p>
+                </div>
+            </div>         
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

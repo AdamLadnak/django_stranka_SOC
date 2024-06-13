@@ -1,13 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Štatistiky</h1>
+    <h1>Štatistika</h1>
     <div class="container pt-3">
-        <p>Počet čakajúcich: {{cakajuce}}</p>
-        <p>Počet voľných: {{volne}}</p>
-        <p>Počet schválených: {{schvalene}}</p>
-        <p>Počet tém: {{pocet_tem}}</p>
-        <p>Počet učiteľov: {{pocet_ucitelov}}</p>
-        <p>Počet študentov: {{pocet_studentov}}</p>
+        <div class="stat">
+            <p class="label">Počet čakajúcich:</p> 
+            <p class="value">{{cakajuce}}</p>
+        </div>
+        <div class="stat">
+            <p class="label">Počet voľných:</p> 
+            <p class="value">{{volne}}</p>
+        </div>
+        <div class="stat">
+            <p class="label">Počet schválených:</p> 
+            <p class="value">{{schvalene}}</p>
+        </div>
+        <div class="stat">
+            <p class="label">Počet tém:</p> 
+            <p class="value">{{pocet_tem}}</p>
+        </div>
+        <div class="stat">
+            <p class="label">Počet učiteľov:</p> 
+            <p class="value">{{pocet_ucitelov}}</p>
+        </div>
+        <div class="stat">
+            <p class="label">Počet študentov:</p> 
+            <p class="value">{{pocet_studentov}}</p>
+        </div>
     </div>
-    
-{% endblock  %}
+{% endblock %}
