@@ -1,8 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
-    {% if temy %}
     <div class="container">
         <h1>Témy</h1>
+        <div class="filter-options">
+            <form method="GET" action="{% url 'temy' %}">
+                <label for="odbor">Odbor:</label>
+                <select name="odbor" id="odbor">
+                    <option value="">Všetky</option>
+                    {% for odbor in odbory %}
+                        <option value="{{ odbor.id }}">{{ odbor.nazov }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="konzultant">Konzultant:</label>
+                <select name="konzultant" id="konzultant">
+                    <option value="">Všetci</option>
+                    {% for ucitel in ucitelia %}
+                        <option value="{{ ucitel.id }}">{{ ucitel.meno }} {{ ucitel.priezvisko }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="dostupnost">Dostupnosť:</label>
+                <select name="dostupnost" id="dostupnost">
+                    <option value="">Všetky</option>
+                    {% for dostupnost in dostupnosti %}
+                        <option value="{{ dostupnost.id }}">{{ dostupnost.nazov }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">Filtrovať</button>
+            </form>
+        </div>
+
+        {% if temy %}
 
         <div class="themes-list">
             {% for tema in temy %}
@@ -31,6 +61,7 @@
             </div>         
             {% endfor %}
         </div>
+    
+        {% endif %}
     </div>
-    {% endif %}
 {% endblock %}

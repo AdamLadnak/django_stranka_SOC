@@ -40,3 +40,30 @@ def pridat_temu(request):
         form = TemaForm()
     
     return render(request, 'soc/pridat_temu.html', {'form': form})
+
+def tema_list(request):
+    temy = Tema.objects.all()
+
+    odbory = Odbor.objects.all()
+    ucitelia = Ucitel.objects.all()
+    dostupnosti = Dostupnost.objects.all()
+
+    odbor_id = request.GET.get('odbor')
+    if odbor_id:
+        temy = temy.filter(odbor_id=odbor_id)
+
+    konzultant_id = request.GET.get('konzultant')
+    if konzultant_id:
+        temy = temy.filter(konzultant_id=konzultant_id)
+
+    dostupnost_id = request.GET.get('dostupnost')
+    if dostupnost_id:
+        temy = temy.filter(dostupnost_id=dostupnost_id)
+
+    context = {
+        'temy': temy,
+        'odbory': odbory,
+        'ucitelia': ucitelia,
+        'dostupnosti': dostupnosti,
+    }
+    return render(request, 'soc/index.html', context)
