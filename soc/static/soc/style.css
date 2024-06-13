@@ -146,6 +146,9 @@ h1 {
     text-decoration: none;
     color: #fff;
 }
+a {
+    color: #000;
+}
 
 /* Filter Options Styles */
 .filter-options {
