@@ -88,15 +88,15 @@ h1 {
     padding: 1.5rem;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack items vertically */
+    display: flex;
+    flex-direction: column;
     margin-bottom: 1rem;
 }
 
 .theme .content {
-    display: flex; /* Display in a row */
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center vertically */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
 }
 
 .theme .content h2 {
@@ -123,7 +123,7 @@ h1 {
 }
 
 .theme .topic-details {
-    margin-top: 1rem; /* Add space between content and details */
+    margin-top: 1rem; 
 }
 
 /* Utility Classes */
@@ -163,7 +163,7 @@ a {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    flex-wrap: wrap; /* Allow form items to wrap to the next line */
+    flex-wrap: wrap;
 }
 
 .filter-group {
